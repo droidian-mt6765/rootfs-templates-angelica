@@ -1,0 +1,62 @@
+{{- $architecture := or .architecture "arm64" -}}
+{{- $apilevel := or .apilevel "28" -}}
+{{- $suite := "bookworm" -}}
+{{- $version := or .version "nightly" -}}
+{{- $variant := or .variant "phone" -}}
+{{- $use_internal_repository := or .use_internal_repository "no" -}}
+
+{{- $username := or .username "droidian" -}}
+{{- $password := or .password "1234" -}}
+{{- $hostname := or .hostname "droidian" -}}
+
+architecture: {{ $architecture }}
+actions:
+
+  - action: recipe
+    description: create rootfs
+    recipe: droidian_gsi_base.yaml
+    variables:
+      architecture: {{ $architecture }}
+      apilevel: {{ $apilevel }}
+      suite: {{ $suite }}
+      use_internal_repository: {{ $use_internal_repository }}
+      username: {{ $username }}
+      password: {{ $password }}
+      hostname: {{ $hostname }}
+
+  - action: apt
+    chroot: true
+    description: install cutie
+    packages:
+      - cutie-shell
+      - cutie-settings-daemon
+      - qml-module-cutie
+      - cutie-settings
+      - cutie-music
+      - qt5-qpa-hwcomposer-plugin
+      - plymouth-theme-droidian
+      - qtwayland5
+
+{{ if eq $variant "phone" }}
+  - action: apt
+    chroot: true
+    description: install packages for the phone variant
+    packages:
+      - adaptation-hybris-api{{ $apilevel }}-phone
+      - cutie-messaging
+{{end}}
+
+{{ if eq $version "nightly" }}
+  - action: apt
+    chroot: true
+    description: install devtools (nightly)
+    packages:
+      - droidian-devtools
+      - droidian-quirks-regenerate-ssh-keys
+      - adaptation-hybris-devtools
+{{end}}
+
+  - action: run
+    description: Set up cutie
+    chroot: true
+    script: scripts/setup-cutie.sh

@@ -15,3 +15,13 @@ plymouth-set-default-theme mobian
 if [ -f /usr/bin/phosh ]; then
     systemctl enable phosh.service
 fi
+
+if [ -f /usr/bin/cutie-ui-io ]; then
+    systemctl enable cutie-ui-io.service
+fi
+
+if [ -f /usr/bin/cutie-settings-daemon ]; then
+    systemctl enable cutie-settings-daemon.service
+fi
+
+rm -f /etc/systemd/system/android-service@hwcomposer.service.d/20-phosh.conf

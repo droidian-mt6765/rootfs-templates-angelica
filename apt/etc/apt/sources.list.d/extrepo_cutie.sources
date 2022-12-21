@@ -1,0 +1,6 @@
+Architectures: amd64 arm64 armhf
+Components: main
+Suites: bookworm
+Uris: http://deb.cutie-shell.org/staging
+Types: deb
+Signed-By: /var/lib/extrepo/keys/cutie.asc
