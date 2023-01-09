@@ -99,7 +99,7 @@ echo "Preparing zipfile"
 if [ ! -d "android-image-flashing-template" ]; then
     apt update
     apt install git -y
-    git clone https://github.com/droidian-onclite/android-image-flashing-template
+    git clone https://github.com/droidian-mt6765/android-image-flashing-template
 fi
 echo ${WORK_DIR}
 echo ${ZIP_NAME}
