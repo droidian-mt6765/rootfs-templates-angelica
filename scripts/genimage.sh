@@ -113,12 +113,12 @@ mv ${WORK_DIR}/userdata.img ${WORK_DIR}/target/data/userdata.img
 
 apt update
 apt install wget -y
-wget https://github.com/droidian-mt6765/kernel-xiaomi-mt6765/releases/download/dandelion/boot-dandelion.img
-wget https://github.com/droidian-mt6765/kernel-xiaomi-mt6765/releases/download/dandelion/dtbo-dandelion.img
-wget https://github.com/droidian-mt6765/kernel-xiaomi-mt6765/releases/download/dandelion/vbmeta-dandelion.img
-cp ./boot-dandelion.img ${WORK_DIR}/target/data/boot.img
-cp ./dtbo-dandelion.img ${WORK_DIR}/target/data/dtbo.img
-cp ./vbmeta-dandelion.img ${WORK_DIR}/target/data/vbmeta.img
+wget https://github.com/droidian-mt6765/kernel-xiaomi-mt6765/releases/download/angelica/boot-angelica.img
+wget https://github.com/droidian-mt6765/kernel-xiaomi-mt6765/releases/download/angelica/dtbo-angelica.img
+wget https://github.com/droidian-mt6765/kernel-xiaomi-mt6765/releases/download/angelica/vbmeta-angelica.img
+cp ./boot-angelica.img ${WORK_DIR}/target/data/boot.img
+cp ./dtbo-angelica.img ${WORK_DIR}/target/data/dtbo.img
+cp ./vbmeta-angelica.img ${WORK_DIR}/target/data/vbmeta.img
 
 # generate zip
 echo "Generating zip"
