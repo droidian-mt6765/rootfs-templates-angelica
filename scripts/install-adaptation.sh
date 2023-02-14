@@ -51,7 +51,7 @@ curl https://mirror.bardia.tech/garden/garden.gpg | sudo apt-key add -
 curl -sS -o /etc/apt/sources.list.d/garden.list https://mirror.bardia.tech/garden/garden.list
 curl -sS https://mirror.bardia.tech/garden-kernel/garden-kernel.gpg | tee /etc/apt/trusted.gpg.d/garden-kernel.gpg
 curl https://mirror.bardia.tech/garden-kernel/garden-kernel.gpg | sudo apt-key add -
-curl -sS -o /etc/apt/sources.list.d/garden-kernel.list https://mirror.bardia.tech/garden/garden-kernel.list
+curl -sS -o /etc/apt/sources.list.d/garden-kernel.list https://mirror.bardia.tech/garden-kernel/garden-kernel.list
 apt update
 
 tmpdir="$(mktemp -d)"
